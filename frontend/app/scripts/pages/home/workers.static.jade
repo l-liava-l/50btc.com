@@ -1,0 +1,17 @@
+div( class="item noPadding header-margin" ng-repeat="(id, worker) in status.data.workers track by $index")
+    div(class="row row-center")
+        p(class="col") {{worker.worker_name}}
+        div(class="col-20 row row-center")
+            div(class="col col-33 col-offset-33 status-bage worker-status-{{status.historyModel.workers[id].status}}")
+
+    div
+        p(class="grey row")
+            span(class="col") Total shares:
+            span(class="col text-right") {{worker.total_shares}}
+        p(class="row")
+            span(class="col") Last share:
+            span(class="col text-right") {{worker.last_share}}
+
+div(style="min-height: 300px")
+
+

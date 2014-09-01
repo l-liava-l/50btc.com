@@ -1,0 +1,14 @@
+ion-view(title="Miner status 50btc")
+    ion-content
+        div(class="modal-alert")
+            div(class="button-bar")
+                button(class="button button-dark icon ion-checkmark" ng-click="cancel()")
+                button(class="button button-dark icon ion-volume-mute" ng-click="stopMedia()")
+            div(class="list header-margin text-center")
+                span(class="hash-rate padding")
+                    b {{status.hashRate}}
+                        empty(ng-show="status.hashRate >= 0") Mh/s
+            div(class="has-header")
+
+        h2(class="text-center color-white") Bad workers:
+        p(class="text-center color-white" ng-repeat="worker in status.badWorkers track by $index") {{worker}}

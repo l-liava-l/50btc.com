@@ -1,0 +1,38 @@
+ion-view(title="Miner status 50btc")
+
+    div(class="bar bar-header bar-dark")
+        button(class="button icon ion-navicon-round" ng-click="topmenu = !topmenu")
+        div(class="title")
+            button(class="button icon-left button-assertive ion-alert-circled"
+                ng-if="status.hardwareAlertPrevent"
+                ng-click="status.hardwareAlertPrevent = false") Enable security
+        button(class="button icon ion-gear-b" ng-click="location('/settings')")
+
+
+    div(class="item noPadding" ng-show="topmenu")
+        p(class="row")
+            span(class="col") Hash rate
+            span(class="col text-right") {{status.data.user.hash_rate}}
+        p(class="row")
+            span(class="col") Confirmed rewards
+            span(class="col text-right") {{status.data.user.confirmed_rewards}}
+        p(class="row")
+            span(class="col") Payouts
+            span(class="col text-right") {{status.data.user.payouts}}
+
+
+    ion-content
+        div(class="has-header")
+            div(class="item item-icon-left" ng-show="status.error") API key is invalid! Please renew.
+                i(class="icon ion-alert-circled")
+
+        div(class="margin-top-88")
+            div(class="list header-margin text-center")
+                 span(class="hash-rate padding hash-rate-status-{{status.historyModel.powerStatus}}")
+                     b {{status.data.user.hash_rate}}
+                         empty(ng-show="status.data.user.hash_rate >= 0") Mh/s
+            workers-temp
+
+
+
+

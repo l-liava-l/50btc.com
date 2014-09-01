@@ -1,0 +1,43 @@
+ion-view(title="Settings")
+
+    div(class="bar bar-header bar-dark")
+        button(class="button icon ion-arrow-left-c" ui-sref="home" ng-click="reload()")
+        div(class="title")
+            button(class="button icon-left button-assertive ion-alert-circled"
+            ng-if="status.hardwareAlertPrevent"
+            ng-click="status.hardwareAlertPrevent = false") Enable security
+        h1(class="title")
+        button(class="button icon ion-archive" ng-click="save()")
+
+    ion-content(class="header-margin")
+
+        div(class="list")
+
+            div(class="item item-input")
+                i(class="icon")
+                input(type="text" placeholder="API (your account > settings)" ng-model="settings.apiKey")
+                button(class="button button-clear button-stable" ng-click="p()") Paste
+
+
+            div(class="item range range-energized")
+                i(class="icon ion-loop")
+                input(type="range" min="5" max="60" step="1" ng-model="settings.refresh")
+                empty(class="worker-status-0 padding-horizontal bage-block") {{settings.refresh}} seconds
+
+
+            label(class="item item-input")
+                i(class="icon ion-radio-waves placeholder-icon")
+                input(type="number"  ng-model="settings.alert" placeholder="(Mh)  If hash rate less will be alert")
+
+
+
+
+
+        ul(class="list")
+
+            li(class="item item-toggle") Sound alerts
+                label(class="toggle toggle-balanced border-radius-10")
+                    input(type="checkbox" ng-model="settings.sound")
+                    div(class="track")
+                        div(class="handle")
+
