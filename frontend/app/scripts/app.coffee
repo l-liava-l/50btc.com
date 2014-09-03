@@ -1,7 +1,6 @@
 'use strict'
 App = angular.module('app', ['ionic', 'ngResource']).run () ->
 
-
   App.config [
     '$stateProvider'
     '$urlRouterProvider'
